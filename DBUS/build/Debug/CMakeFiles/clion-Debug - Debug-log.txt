@@ -1,0 +1,5 @@
+"C:\CLion 2026.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug --preset Debug -S C:\Users\jacob\Desktop\dbus\DBUS -B C:\Users\jacob\Desktop\dbus\DBUS\build\Debug
+Build type: Debug
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/jacob/Desktop/dbus/DBUS/build/Debug
