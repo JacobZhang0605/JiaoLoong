@@ -45,7 +45,7 @@ void Motor::setTxCurrent(float amperes, uint8_t motor_id) {
 void Motor::PID(float targeted_amperes,uint8_t motor_id) {
     float kp=0.05,ki=0.1;
     float error=0;float out_amperes;
-    error=-targeted_amperes+currentA_;
+    error=targeted_amperes-currentA_;
     error_sum+=error;
     if (error_sum>=3.0f) error_sum=0.0f;
     if (error_sum<-3.0f) error_sum=0.0f;
