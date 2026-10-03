@@ -54,7 +54,6 @@ void Motor::PID(float targeted_amperes,uint8_t motor_id) {
     else if (out_amperes < targeted_amperes-0.5f) out_amperes = targeted_amperes;
     setTxCurrent(out_amperes,motor_id);
 }
-
 extern "C" {
 void Motor_PID(float targeted_amperes,uint8_t motor_id) {
     motor.PID(targeted_amperes,motor_id);
