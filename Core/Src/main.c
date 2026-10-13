@@ -21,10 +21,11 @@
 #include "can.h"
 #include "tim.h"
 #include "gpio.h"
-
+#include "PID.hpp"
+#include "Motor.hpp"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Motor.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +57,8 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void Motor_PID(float targeted_amperes,uint8_t motor_id);
+float t_angle=90.0f;
+int stop_flag=0;
 /* USER CODE END 0 */
 
 /**
@@ -65,9 +67,7 @@ void Motor_PID(float targeted_amperes,uint8_t motor_id);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -95,15 +95,15 @@ int main(void)
   HAL_CAN_Start(&hcan1);
 	HAL_CAN_ActivateNotification(&hcan1,CAN_IT_RX_FIFO0_MSG_PENDING);
 	HAL_TIM_Base_Start_IT(&htim6);
+  
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
-    Motor_PID(1,1);
-	  HAL_Delay(10);
+  {	
+		Motor_SetTargetAngle(t_angle);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

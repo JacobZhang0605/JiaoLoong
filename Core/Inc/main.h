@@ -40,6 +40,7 @@ extern CAN_RxHeaderTypeDef rx_header;
 extern CAN_TxHeaderTypeDef tx_header;
 extern uint32_t can_tx_mailbox;
 extern CAN_FilterTypeDef can_filter_config;
+extern int stop_flag;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
