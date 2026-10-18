@@ -32,7 +32,6 @@ uint8_t bmi088_init(void);
 
 #ifdef __cplusplus
 
-// 2. 具体的 BMI088 实现类（把上面的 C 函数包装成 C++ 类的接口）
 class BMI088 : public IMU_SENSOR {
 public:
     void accel_read(uint8_t reg, uint8_t *data, uint8_t len) override {
